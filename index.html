@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yellow Car Official bank</title>
+<h1>Yellow Car Official Bank</h1>
+<style>
+    body {
+        background-color: yellow;
+        font-family: Arial;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    button {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 16px;
+    }
+	input, button {
+	border: 2px solid white;
+	border-radius: 6px;
+	}
+</style>
+</head>
+
+<body>
+
+
+
+<input type="number" id="num"><br>
+
+<button onclick="add()">Add</button>
+<h2>You have: <span id="total">0</span> yellow cars.</h2>
+<button onclick="subtract()">Withdraw(1)</button>
+
+<script>
+let total = 0;
+
+// LOAD saved value
+if (localStorage.getItem("savedTotal")) {
+    total = Number(localStorage.getItem("savedTotal"));
+    document.getElementById("total").innerHTML = total;
+}
+
+function save() {
+    localStorage.setItem("savedTotal", total);
+}
+
+function add() {
+    let value = document.getElementById("num").value;
+    if (value === "") return;
+
+    total += Number(value);
+    document.getElementById("total").innerHTML = total;
+
+    document.getElementById("num").value = "";
+    save();
+}
+
+function subtract() {
+    if (total > 0) {
+        total -= 1;
+        document.getElementById("total").innerHTML = total;
+        save();
+    }
+}
+</script>
+
+</body>
+</html>
