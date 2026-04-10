@@ -41,7 +41,7 @@
 <button onclick="add()">Add</button>
 <h2>You have: <span id="total">0</span> yellow cars.</h2>
 <button onclick="subtract()">Withdraw(1)</button>
-<button onclick="add()">Add(1)</button>
+<button onclick="addOne()">+1</button>
 
 <script>
 let total = 0;
@@ -74,6 +74,13 @@ function subtract() {
         save();
     }
 }
+
+function addOne() {
+	total++;
+	document.getElementByID("total").innerHTML = total;
+	save();
+}
+
 </script>
 
 </body>
